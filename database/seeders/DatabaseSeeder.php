@@ -102,17 +102,10 @@ class DatabaseSeeder extends Seeder
 
         Perfil::insert(
             [
-                'filename' => '1610044901imp10.jpg',
-                'id_usuario' => '13344556'
-            ],
-            [
-                'filename' => '1610044901imp11.jpg',
-                'id_usuario' => '13344556'
-            ],
-            [
                 'filename' => '1610044901imp12.jpg',
                 'id_usuario' => '13344556'
             ]
         );
+
     }
 }
