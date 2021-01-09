@@ -39,4 +39,30 @@ class FotoController extends Controller
             'data' => $FotosAll
         ], 200);
     }
+
+    public function getPhoto($personId)
+    {
+        $foto = DB::table('fotos')->where('personId', $personId)->first();
+
+        if (is_null($foto)) {
+            return response()->json([
+                'ok' => false,
+                'code' => 404,
+                'error' => 'No se encotro la imagen'
+            ]);
+        }
+
+        if (Storage::disk('public')->exists('photo/' . $foto->filename)) {
+
+            $file = Storage::disk('public')->get('photo/' . $foto->filename);
+
+            return new Response($file, 200);
+        }
+
+        return response()->json([
+            'ok' => false,
+            'code' => 404,
+            'error' => 'Filename no econtrado'
+        ], 404);
+    }
 }
