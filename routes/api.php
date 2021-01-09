@@ -15,6 +15,7 @@ use App\Models\Administrador;
 //Administrador
 Route::post('/administrador/login', [AdministradorController::class, 'login']);
 
+
 // Estudio
 Route::post('/estudio/save', [EstudioController::class, 'save']);
 Route::post('/estudio/update/{id}', [EstudioController::class, 'update']);
