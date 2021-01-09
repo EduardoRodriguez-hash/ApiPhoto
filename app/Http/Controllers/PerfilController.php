@@ -90,4 +90,19 @@ class PerfilController extends Controller
             'data' => $photos
         ]);
     }
+
+    public function getImage($filename)
+    {
+        if (Storage::disk('public')->exists('perfil/' . $filename)) {
+
+            $file = Storage::disk('public')->get('perfil/' . $filename);
+            return new Response($file, 200);
+        }
+
+        return response()->json([
+            'ok' => false,
+            'code' => 404,
+            'error' => 'Filename no econtrado'
+        ], 404);
+    }
 }

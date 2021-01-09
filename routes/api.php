@@ -53,6 +53,7 @@ Route::post('/usuario/login', [UsuarioController::class, 'login']);
 //Perfil
 Route::post('/perfil/upload/{idu}', [PerfilController::class, 'upload']);
 Route::get('/perfil/get/{idusuario}', [PerfilController::class, 'getPerfil']);
+Route::get('/getImage/perfil/{filename}', [PerfilController::class, 'getImage']);
 
 //Foto
 Route::get('/foto/getAll/{idestudio}/{idevento}', [FotoController::class, 'getAll']);
