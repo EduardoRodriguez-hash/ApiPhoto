@@ -25,7 +25,7 @@ Route::get('/estudio/last/{num}', [EstudioController::class, 'getLast']);
 Route::get('/estudio/{id}', [EstudioController::class, 'getOne']);
 Route::post('/estudio/login', [EstudioController::class, 'login']);
 Route::post('/estudio/upload/{ide}', [EstudioController::class, 'upload']);
-Route::get('/estudio/getImage/{filename}', [EstudioController::class, 'getImage']);
+Route::get('/estudio/getImage/{filename}', [EstudioController::class, 'getImage'])->name('getImagePhoto');
 Route::get('/estudio/search/{search}', [EstudioController::class, 'search']);
 
 
@@ -53,10 +53,8 @@ Route::post('/usuario/login', [UsuarioController::class, 'login']);
 //Perfil
 Route::post('/perfil/upload/{idu}', [PerfilController::class, 'upload']);
 Route::get('/perfil/get/{idusuario}', [PerfilController::class, 'getPerfil']);
-Route::get('/getImage/perfil/{filename}', [PerfilController::class, 'getImage']);
+Route::get('/getImage/perfil/{filename}', [PerfilController::class, 'getImage'])->name('getImagePerfil');
 
 //Foto
 Route::get('/foto/getAll/{idestudio}/{idevento}', [FotoController::class, 'getAll']);
 Route::get('/getImage/foto/{personId}', [FotoController::class, 'getPhoto']);
-
-

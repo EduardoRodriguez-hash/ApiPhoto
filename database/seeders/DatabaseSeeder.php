@@ -83,13 +83,14 @@ class DatabaseSeeder extends Seeder
         );
 
 
-        // Foto::insert(
-        //     [
-        //         'filename' => 'maps2334.pg',
-        //         'precio' => 10.99,
-        //         'id_evento' => 1
-        //     ]
-        // );
+        Foto::insert(
+            [
+                'filename' => 'imgp.png',
+                'precio' => 10.99,
+                'id_evento' => 1,
+                'personId' => 'abc-bca-wert-trew'
+            ]
+        );
 
         // NotaVenta::insert(
         //     [
@@ -106,6 +107,5 @@ class DatabaseSeeder extends Seeder
                 'id_usuario' => '13344556'
             ]
         );
-
     }
 }

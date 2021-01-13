@@ -1,18 +1,15 @@
 <?php
 
+use App\Http\Controllers\FotoController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/buy/paypal/{user_id}/{personId}', [FotoController::class, 'Buy'])->name('PaypalView');
+Route::post('/buy/paypal/pago', [PaymentController::class, 'PayWithPaypal'])->name('PaypalPago');
+Route::get('/buy/correct', [PaymentController::class, 'BuyCorrect'])->name('buy.correct');
+Route::get('/buy/error', [PaymentController::class, 'BuyError'])->name('buy.error');
+Route::get('/buy/verfy/{user_id}/{foto_id}/{pago}', [PaymentController::class, 'BuyVerify'])->name('buy.verify');

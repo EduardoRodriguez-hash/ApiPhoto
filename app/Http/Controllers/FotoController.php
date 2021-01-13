@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\View;
 
 class FotoController extends Controller
 {
@@ -66,5 +67,19 @@ class FotoController extends Controller
             'code' => 404,
             'error' => 'Filename no econtrado'
         ], 404);
+    }
+
+    public function Buy($user_id, $personId)
+    {
+        $user = DB::table('usuarios')->where('id', $user_id)->first();
+        $foto = DB::table('fotos')->where('personId', $personId)->first();
+
+        $error = false;
+
+        if (is_null($user) || is_null($foto)) {
+            $error = true;
+        }
+
+        return View('paypal.buy', compact('user', 'foto', 'error'));
     }
 }

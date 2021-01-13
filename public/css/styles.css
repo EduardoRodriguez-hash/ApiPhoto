@@ -1,0 +1,15 @@
+.p-abs{
+    position: absolute !important;
+    width: 100%;
+    top: 40%;
+}
+.pos-rel{
+    position: relative !important;
+}
+
+.img-tam{
+    width: 300px !important;
+}
+.opacity{
+    opacity: 0.6;
+}
