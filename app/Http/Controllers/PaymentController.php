@@ -71,7 +71,7 @@ class PaymentController extends Controller
             return redirect()->away($payment->getApprovalLink());
         } catch (PayPalConnectionException $e) {
 
-            return redirect()->route('buy.error');
+            return redirect()->route('buy.error')->with('msg','Error Paypal Connection:'.$e);
         }
     }
 
@@ -82,7 +82,7 @@ class PaymentController extends Controller
         $payerId = $request->input('PayerID');
 
         if (!$paymentId || !$token || !$payerId) {
-            return redirect()->route('buy.error');
+            return redirect()->route('buy.error')->with('msg','no se recibio paymentId token payerId');
         }
 
         $payment = Payment::get($paymentId, $this->apiContext);
@@ -103,10 +103,9 @@ class PaymentController extends Controller
             NotaVenta::create($notaventa);
 
             return redirect()->route('buy.correct');
-
         }
 
-        return redirect()->route('buy.error');
+        return redirect()->route('buy.error')->with('msg','no se recibio la aprovacion para el pago');
     }
 
     public function BuyError()

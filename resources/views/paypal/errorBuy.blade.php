@@ -21,7 +21,9 @@
             </div>
 
             <div class="col-12 text-center mt-5">
-                <span>No se produjo realizar el pago debido a un errror</span>
+                @if(session("msg"))
+                <span>{{session('msg')}}</span>
+                @endif
             </div>
 
         </div>

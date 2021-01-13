@@ -38,7 +38,7 @@
                     <div class="card-header bg-white">
 
                         <div class="pos-rel img-tam mx-auto">
-                            <img src="{{route('getImagePhoto',['filename'=>$foto->filename])}}" alt="No se pudo cargar la images" class="img-fluid rounded border opacity" id="NotDowload" . />
+                            <img src="{{route('getImagePhoto',['filename'=>$foto->filename])}}" alt="No se pudo cargar la imagen" class="img-fluid rounded border opacity" id="NotDowload" . />
                             <h2 class="p-abs text-white text-center">Comprar Foto</h2>
                         </div>
 
