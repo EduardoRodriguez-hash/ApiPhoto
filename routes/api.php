@@ -58,3 +58,6 @@ Route::get('/getImage/perfil/{filename}', [PerfilController::class, 'getImage'])
 //Foto
 Route::get('/foto/getAll/{idestudio}/{idevento}', [FotoController::class, 'getAll']);
 Route::get('/getImage/foto/{personId}', [FotoController::class, 'getPhoto']);
+
+//NotaVenta
+Route::get('/mis/fotos/{idusuario}', [FotoController::class, 'MyPhotos']);

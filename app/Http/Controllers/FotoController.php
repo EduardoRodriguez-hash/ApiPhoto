@@ -82,4 +82,29 @@ class FotoController extends Controller
 
         return View('paypal.buy', compact('user', 'foto', 'error'));
     }
+
+    public function MyPhotos($idusuario)
+    {
+        $user = DB::table('usuarios')->where('id', $idusuario)->first();
+
+        if (is_null($user)) {
+            return response()->json([
+                'ok' => false,
+                'code' => 404,
+                'error' => "El usuario con ese id no existe"
+            ]);
+        }
+
+        $myphotos = DB::table('nota_ventas')
+            ->where('nota_ventas.id_usuario', $idusuario)
+            ->join('fotos', 'fotos.id', 'nota_ventas.id_foto')
+            ->select('fotos.*')
+            ->get();
+
+        return  response()->json([
+            'ok' => true,
+            'code' => 200,
+            'data' => $myphotos
+        ]);
+    }
 }
