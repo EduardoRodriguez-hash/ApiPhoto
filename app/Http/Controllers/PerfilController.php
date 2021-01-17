@@ -27,47 +27,29 @@ class PerfilController extends Controller
 
         $reglas = [
             'file0' => 'required|image|mimes:jpg,jpeg,png',
-            'file1' => 'required|image|mimes:jpg,jpeg,png',
-            'file2' => 'required|image|mimes:jpg,jpeg,png'
         ];
 
         $validate = Validator::make($request->all(), $reglas);
 
         if ($validate->fails()) {
-            return response()->json(['ok' => false, 'errors' => $validate->errors()]);
+            return response()->json(['ok' => false, 'error' => $validate->errors()]);
         }
 
         $image0 = $request->file('file0');
-        $image1 = $request->file('file1');
-        $image2 = $request->file('file2');
 
         $imagen_name0 = time() . $image0->getClientOriginalName();
-        $imagen_name1 = time() . $image1->getClientOriginalName();
-        $imagen_name2 = time() . $image2->getClientOriginalName();
 
         $image0->storeAs('public/perfil', $imagen_name0);
-        $image1->storeAs('public/perfil', $imagen_name1);
-        $image2->storeAs('public/perfil', $imagen_name2);
 
         Perfil::create([
             'filename' => $imagen_name0,
             'id_usuario' => $idu
         ]);
 
-        Perfil::create([
-            'filename' => $imagen_name1,
-            'id_usuario' => $idu
-        ]);
-
-        Perfil::create([
-            'filename' => $imagen_name2,
-            'id_usuario' => $idu
-        ]);
-
         return response()->json([
             'ok' => true,
             'code' => 200,
-            'msg' => 'Las imagenes se subieron correctamente'
+            'msg' => 'Las imagen se subio correctamente'
         ], 200);
     }
 

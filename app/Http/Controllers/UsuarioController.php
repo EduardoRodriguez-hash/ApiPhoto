@@ -24,7 +24,7 @@ class UsuarioController extends Controller
         $validate = Validator::make($request->all(), $reglas);
 
         if ($validate->fails()) {
-            return response()->json(['ok' => false, 'errors' => $validate->errors()]);
+            return response()->json(['ok' => false, 'error' => $validate->errors()]);
         }
 
         $campos = $request->all();

@@ -35,10 +35,31 @@ class DatabaseSeeder extends Seeder
         Estudio::insert(
             [
                 'nombre' => 'PhotoX',
-                'descripcion' => 'Descripcion de PhotoX Studio',
+                'descripcion' => 'Descripcion de PhotoX Studio concatactanos para otener nuestros servicios',
                 'email' => 'photox@gmail.com',
                 'pass' => Hash::make('12345678'),
-                'telefono' => '63856556'
+                'telefono' => '72602365'
+            ],
+            [
+                'nombre' => 'Estudio Master',
+                'descripcion' => 'Descripcion de Estudio Master Studio concatactanos para otener nuestros servicios',
+                'email' => 'master@gmail.com',
+                'pass' => Hash::make('12345678'),
+                'telefono' => '72602365'
+            ],
+            [
+                'nombre' => 'Estudio Los Alpes',
+                'descripcion' => 'Descripcion de Estudio Master Studio concatactanos para otener nuestros servicios',
+                'email' => 'alpes@gmail.com',
+                'pass' => Hash::make('12345678'),
+                'telefono' => '72602365'
+            ],
+            [
+                'nombre' => 'Estudio Dreams',
+                'descripcion' => 'Descripcion de Estudio Dreams Studio concatactanos para otener nuestros servicios',
+                'email' => 'dreams@gmail.com',
+                'pass' => Hash::make('12345678'),
+                'telefono' => '72602365'
             ]
         );
 
@@ -48,6 +69,20 @@ class DatabaseSeeder extends Seeder
                 'nombre' => 'jose',
                 'apellido' => 'hernandez',
                 'telefono' => '67804903',
+                'id_estudio' => 1
+            ],
+            [
+                'id' => '11347979',
+                'nombre' => 'marcelo',
+                'apellido' => 'sanchez',
+                'telefono' => '67804923',
+                'id_estudio' => 1
+            ],
+            [
+                'id' => '11348080',
+                'nombre' => 'Ivan',
+                'apellido' => 'Dominguez',
+                'telefono' => '67804913',
                 'id_estudio' => 1
             ]
         );
@@ -60,7 +95,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'david@gmail.com',
                 'pass' => Hash::make('12345678'),
                 'telefono' => '70385924'
-            ]
+            ],
         );
 
         Contrato::insert(
@@ -69,28 +104,67 @@ class DatabaseSeeder extends Seeder
                 'fecha' => '20190120',
                 'id_estudio' => 1,
                 'id_usuario' => '13344556'
+            ],
+            [
+                'total' => 300,
+                'fecha' => '20200304',
+                'id_estudio' => 1,
+                'id_usuario' => '13344556'
+            ],
+            [
+                'total' => 800,
+                'fecha' => '20190120',
+                'id_estudio' => 1,
+                'id_usuario' => '13344556'
+            ],
+            [
+                'total' => 200,
+                'fecha' => '20190120',
+                'id_estudio' => 1,
+                'id_usuario' => '13344556'
             ]
         );
 
         Evento::insert(
             [
-                'nombre' => 'Face to Face',
+                'nombre' => 'Face Face',
                 'direccion' => 'Km9 balcon 2',
                 'fecha' => '20190122',
                 'hora' => '22:10',
                 'id_contrato' => 1
-            ]
-        );
-
-
-        Foto::insert(
+            ],
             [
-                'filename' => 'imgp.png',
-                'precio' => 10.99,
-                'id_evento' => 1,
-                'personId' => 'abc-bca-wert-trew'
+                'nombre' => 'Evento Promo',
+                'direccion' => 'Km6 doble via',
+                'fecha' => '20190122',
+                'hora' => '20:10',
+                'id_contrato' => 2
+            ],
+            [
+                'nombre' => 'Evento Fiesta',
+                'direccion' => 'Km6 doble via',
+                'fecha' => '20190122',
+                'hora' => '20:10',
+                'id_contrato' => 3
+            ],
+            [
+                'nombre' => 'Evento Navidad',
+                'direccion' => 'Km6 doble via',
+                'fecha' => '20190122',
+                'hora' => '20:10',
+                'id_contrato' => 4
             ]
         );
+
+
+        // Foto::insert(
+        //     [
+        //         'filename' => 'imgp.png',
+        //         'precio' => 10.99,
+        //         'id_evento' => 1,
+        //         'personId' => 'abc-bca-wert-trew'
+        //     ]
+        // );
 
         // NotaVenta::insert(
         //     [

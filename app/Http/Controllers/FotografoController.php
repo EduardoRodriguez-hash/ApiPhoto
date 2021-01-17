@@ -22,7 +22,7 @@ class FotografoController extends Controller
         }
 
         $reglas = [
-            'id' => 'required|min:8',
+            'id' => 'required|min:8|unique:fotografos',
             'nombre' => 'required',
             'apellido' => 'required',
             'telefono' => 'required|min:8',
@@ -94,6 +94,5 @@ class FotografoController extends Controller
             'code' => 200,
             'data' => $fotografos
         ], 200);
-
     }
 }
